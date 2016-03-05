@@ -1,0 +1,3 @@
+# Ignore bin folder and data file
+bin/
+data.txt
