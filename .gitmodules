@@ -1,0 +1,3 @@
+[submodule "senbuild"]
+	path = senbuild
+	url = https://github.com/seanballais/senbuild
