@@ -1,7 +1,7 @@
 // Mister Martinez will just send a message containing the message from senbuild
 var login = require("facebook-chat-api");
 
-login({ email: "FB_EMAIL", password: "FB_PASSWORD" }, function callback(err, api) {
+login({ email: "mister.martinez.bot@gmail.com", password: "DarthVader123" }, function callback(err, api) {
     if (err) {
         return console.error(err);
     }
@@ -17,17 +17,16 @@ login({ email: "FB_EMAIL", password: "FB_PASSWORD" }, function callback(err, api
                 if (event.body.toLowerCase().indexOf("@mistermartinez") > -1) {
                     var exec = require("child_process").exec;
                     var msg = "";
-                    var child = exec("./bin/sebuild -f data.txt");
+                    var child = exec("./bin/senbuild -f data.txt");
                     child.stdout.on("data", function(data) {
-                        msg += data;
+                        msg = data;
                     });
 
                     child.on("close", function() {
                         console.log("Finished producing an output.");
                         console.log("Output:\n" + msg);
-                    })
-
-                    api.sendMessage(msg, event.threadID);
+                        api.sendMessage(msg, event.threadID);
+                    });
                 }
 
                 api.markAsRead(event.threadID, function(err) {

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Run manager thing
 if [ ! -f bin/senbuild ]; then
     echo "Senbuild not built yet. Building senbuild..."
@@ -8,5 +10,5 @@ if [ ! -f bin/senbuild ]; then
 fi
 
 # Make Mister Martinez talk
-node index.js
+node server.js
 echo "Done."

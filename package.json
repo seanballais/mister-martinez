@@ -1,0 +1,23 @@
+{
+  "name": "mister-martinez",
+  "version": "0.0.1",
+  "description": "Fun bot for Senbuild for Facebook chat",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Sean Francis N. Ballais",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/seanballais/mister-martinez.git"
+  },
+  "dependencies": {
+    "facebook-chat-api": "1.0.8"
+  },
+  "bugs": {
+    "url": "https://github.com/seanballais/mister-martinez/issues"
+  },
+  "homepage": "https://github.com/seanballais/mister-martinez",
+  "devDependencies": {}
+}
