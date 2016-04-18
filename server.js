@@ -12,22 +12,21 @@ login({ email: "mister.martinez.bot@gmail.com", password: "DarthVader123" }, fun
             return console.error(err);
         }
 
-        var Cleverbot = require('cleverbot-node');
+        const Simsimi = require("simsimi");
+        const bot = new Simsimi({
+            key: "0da76951-3f0d-49be-9be3-e014f658644b"
+        });
         switch(event.type) {
             case "message":
-                cleverbot = new Cleverbot;
                 if (event.body.toLowerCase().indexOf("@mistermartinez") > -1) {
-                    cleverbot.prepare();
+                    bot.listen(event.body, function(err, response) {
+                        if (err) {
+                            return console.error(err);
+                        }
 
-                    // Get Cleverbot message
-                    var msg = "";
-                    cleverbot.write(event.body, function(response) {
-                        msg = response.message;
-                        api.sendMessage(msg, event.threadID);
-                    })
-
-                    console.log("Finished producing an output.");
-                    console.log("Output:\n" + msg);
+                        console.log("Output:\n" + response);
+                        api.sendMessage(response, event.threadID);
+                    });
                 }
 
                 api.markAsRead(event.threadID, function(err) {

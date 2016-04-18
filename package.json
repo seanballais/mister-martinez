@@ -13,8 +13,8 @@
     "url": "git://github.com/seanballais/mister-martinez.git"
   },
   "dependencies": {
-    "facebook-chat-api": "1.0.8",
-    "cleverbot-node": "0.2.1"
+    "facebook-chat-api": "^1.0.8",
+    "simsimi": "^2.0.0"
   },
   "bugs": {
     "url": "https://github.com/seanballais/mister-martinez/issues"
