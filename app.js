@@ -1,7 +1,7 @@
 // Mister Martinez will just send a message containing the message from senbuild
 var login = require("facebook-chat-api");
 
-login({ email: "mister.martinez.bot@gmail.com", password: "DarthVader123" }, function callback(err, api) {
+login({ email: "mister.martinez.bot@gmail.com", password: "S3B3Tacloban" }, function callback(err, api) {
     if (err) {
         return console.error(err);
     }
