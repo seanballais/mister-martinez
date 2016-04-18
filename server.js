@@ -12,21 +12,22 @@ login({ email: "mister.martinez.bot@gmail.com", password: "DarthVader123" }, fun
             return console.error(err);
         }
 
+        var Cleverbot = require('cleverbot-node');
         switch(event.type) {
             case "message":
+                cleverbot = new Cleverbot;
                 if (event.body.toLowerCase().indexOf("@mistermartinez") > -1) {
-                    var exec = require("child_process").exec;
-                    var msg = "";
-                    var child = exec("./bin/senbuild -f data.txt");
-                    child.stdout.on("data", function(data) {
-                        msg = data;
-                    });
+                    cleverbot.prepare();
 
-                    child.on("close", function() {
-                        console.log("Finished producing an output.");
-                        console.log("Output:\n" + msg);
+                    // Get Cleverbot message
+                    var msg = "";
+                    cleverbot.write(event.body, function(response) {
+                        msg = response.message;
                         api.sendMessage(msg, event.threadID);
-                    });
+                    })
+
+                    console.log("Finished producing an output.");
+                    console.log("Output:\n" + msg);
                 }
 
                 api.markAsRead(event.threadID, function(err) {
