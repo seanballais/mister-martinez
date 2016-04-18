@@ -20,5 +20,9 @@
     "url": "https://github.com/seanballais/mister-martinez/issues"
   },
   "homepage": "https://github.com/seanballais/mister-martinez",
-  "devDependencies": {}
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js"
+  },
+  "main": "server.js"
 }
