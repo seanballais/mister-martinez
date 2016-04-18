@@ -19,12 +19,15 @@ login({ email: "mister.martinez.bot@gmail.com", password: "DarthVader123" }, fun
         switch(event.type) {
             case "message":
                 if (event.body.toLowerCase().indexOf("@mistermartinez") > -1) {
-                    bot.listen(event.body, function(err, response) {
+                    var userMessage = event.body;
+                    userMessage.replace("@mistermartinez", "");
+                    bot.listen(userMessage, function(err, response) {
                         if (err) {
                             return console.error(err);
                         }
 
-                        console.log("Output:\n" + response);
+                        console.log("Message sent: " + userMessage);
+                        console.log("Output: " + response);
                         api.sendMessage(response, event.threadID);
                     });
                 }
